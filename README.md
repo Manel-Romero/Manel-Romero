@@ -2,7 +2,7 @@
   <source media="(prefers-color-scheme: dark)" srcset="https://manel-readme.manel-romero-alv.workers.dev?section=top&theme=dark">
   <img src="https://manel-readme.manel-romero-alv.workers.dev?section=top&theme=light" width="100%" height="20" align="left">
 </picture>
-<a href="https://<TU_SITIO_WEB_AQUI>.com">
+<a href="https://a.com">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://manel-readme.manel-romero-alv.workers.dev?section=link-website&theme=dark" label="Visit">
     <img src="https://manel-readme.manel-romero-alv.workers.dev?section=link-website&theme=light&i=0" alt="visit my website" width="100" height="18px" align="left">
