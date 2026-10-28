@@ -26,7 +26,7 @@ export default {
 
     const headers = {
       "Content-Type": "image/svg+xml; charset=utf-8",
-      "Cache-Control": "public, max-age=1800, s-maxage=1800",
+      "Cache-Control": "no-cache, no-store, must-revalidate",
       "Access-Control-Allow-Origin": "*",
     };
 
