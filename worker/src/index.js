@@ -181,9 +181,9 @@ async function renderStats(username, token) {
     const repos = await reposRes.json();
 
     if (Array.isArray(repos)) {
-      const cleanRepos = repos.filter(r => !r.fork && !isVibecoded(r));
-      totalStars = cleanRepos.reduce((a, r) => a + (r.stargazers_count || 0), 0);
-      publicRepos = cleanRepos.length;
+      const ownedRepos = repos.filter(r => !r.fork);
+      totalStars = ownedRepos.reduce((a, r) => a + (r.stargazers_count || 0), 0);
+      publicRepos = user?.public_repos !== undefined ? user.public_repos : ownedRepos.length;
     } else if (user?.public_repos !== undefined) {
       publicRepos = user.public_repos;
     }
