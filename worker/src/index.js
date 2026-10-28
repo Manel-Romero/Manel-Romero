@@ -228,35 +228,51 @@ async function renderStats(username, token) {
 </svg>`;
 }
 
-async function renderActivity(username, token) {
-  const reqHeaders = { "User-Agent": "CF-Worker" };
-  if (token) reqHeaders.Authorization = `token ${token}`;
+async function renderActivity(username) {
+  const levelColors = {
+    "0": "#18181b",
+    "1": "#0e4429",
+    "2": "#006d32",
+    "3": "#26a641",
+    "4": "#39d353",
+  };
 
-  let pushCount = 6;
+  let totalContribs = "66";
+  let days = [];
+
   try {
-    const eventsRes = await fetch(`https://api.github.com/users/${username}/events?per_page=100`, { headers: reqHeaders });
-    const events = await eventsRes.json();
-    if (Array.isArray(events)) {
-      pushCount = events.filter(e => e.type === "PushEvent").length;
+    const res = await fetch(`https://github.com/users/${username}/contributions`, {
+      headers: { "User-Agent": "CF-Worker" },
+    });
+    const html = await res.text();
+    const countMatch = html.match(/([0-9,]+)\s+contributions\s+in\s+the\s+last\s+year/i);
+    if (countMatch) totalContribs = countMatch[1];
+
+    const regex = /data-date="(\d{4}-\d{2}-\d{2})"[^>]*data-level="(\d)"/g;
+    let match;
+    const allDays = [];
+    while ((match = regex.exec(html)) !== null) {
+      allDays.push({ date: match[1], level: match[2] });
     }
+    allDays.sort((a, b) => a.date.localeCompare(b.date));
+    days = allDays.slice(-72);
   } catch (e) {}
+
+  while (days.length < 72) {
+    days.unshift({ date: "", level: "0" });
+  }
 
   let cells = "";
   for (let col = 0; col < 18; col++) {
     for (let row = 0; row < 4; row++) {
+      const idx = col * 4 + row;
+      const day = days[idx] || { level: "0" };
       const x = col * 18;
       const y = row * 17;
-      let color = "#18181b";
-      if (col === 17 && row === 3) {
-        color = "#34d399";
-      } else if ((col + row * 3) % 4 === 0) {
-        color = "#10b981";
-      } else if ((col * 2 + row) % 3 === 0) {
-        color = "#059669";
-      } else if ((col + row) % 5 === 0) {
-        color = "#064e3b";
-      }
-      cells += `<rect x="${x}" y="${y}" width="12" height="12" rx="2.5" fill="${color}" />\n    `;
+      const color = levelColors[day.level] || "#18181b";
+      const isLatest = idx === 71 && day.level !== "0";
+      const pulseClass = isLatest ? " latest-pulse" : "";
+      cells += `<rect x="${x}" y="${y}" width="12" height="12" rx="2.5" fill="${color}" class="${pulseClass}" />\n    `;
     }
   }
 
@@ -267,13 +283,15 @@ async function renderActivity(username, token) {
       .card-title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12.5px; font-weight: 600; fill: #f4f4f5; letter-spacing: -0.2px; }
       .dot { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 400; fill: #71717a; }
       .subtext { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12px; font-weight: 400; fill: #a1a1aa; letter-spacing: -0.1px; }
+      @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+      .latest-pulse { animation: pulse 2s ease-in-out infinite; }
     </style>
   </defs>
   <rect class="capsule" x="0.5" y="0.5" width="359" height="159" rx="20" />
   <g transform="translate(20, 24)">
     <circle cx="0" cy="-4" r="3.5" fill="#22c55e" />
     <text x="12" y="0">
-      <tspan class="card-title">Commit Activity</tspan><tspan class="dot"> · </tspan><tspan class="subtext">Public &amp; Private</tspan>
+      <tspan class="card-title">Commit Activity</tspan><tspan class="dot"> · </tspan><tspan class="subtext">${totalContribs} Contributions (Year)</tspan>
     </text>
   </g>
   <g transform="translate(20, 46)">
