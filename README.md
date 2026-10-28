@@ -1,42 +1,33 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://manel-readme.manel-romero-alv.workers.dev?section=top&theme=dark">
-  <img src="https://manel-readme.manel-romero-alv.workers.dev?section=top&theme=light" width="100%" height="20" align="left">
-</picture>
+<div align="center">
 
-<a href="https://manel-romero.github.io/portfolio/">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://manel-readme.manel-romero-alv.workers.dev?section=link-website&theme=dark" label="Visit">
-    <img src="https://manel-readme.manel-romero-alv.workers.dev?section=link-website&theme=light&i=0" alt="visit my website" width="100" height="18px" align="left">
-  </picture>
-</a>
-<img src="data:null;," width="100%" height="0" align="left" alt="">
+<p align="center">
+  <img src="https://now-playing.manel-romero-alv.workers.dev" alt="Currently Playing" width="360" height="40" />
+  &nbsp;
+  <a href="https://github.com/Manel-Romero">
+    <img src="https://manel-readme.manel-romero-alv.workers.dev/status" alt="Status" width="360" height="40" />
+  </a>
+</p>
 
-<a href="https://www.linkedin.com/in/manel-romero-alv/">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://manel-readme.manel-romero-alv.workers.dev?section=link-linkedin&theme=dark">
-    <img src="https://manel-readme.manel-romero-alv.workers.dev?section=link-linkedin&theme=light&i=1" alt="visit my LinkedIn profile" width="100" height="18" align="left">
-  </picture>
-</a>
-<img src="data:null;," width="100%" height="0" align="left" alt="">
+<p align="center">
+  <img src="https://manel-readme.manel-romero-alv.workers.dev/stats" alt="GitHub Metrics" width="360" height="170" />
+  &nbsp;
+  <img src="https://manel-readme.manel-romero-alv.workers.dev/langs" alt="Code Distribution" width="360" height="170" />
+</p>
 
-<a href="https://github.com/Manel-Romero">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://manel-readme.manel-romero-alv.workers.dev?section=link-github&theme=dark">
-    <img src="https://manel-readme.manel-romero-alv.workers.dev?section=link-github&theme=light&i=2" alt="visit my GitHub" width="100" height="18" align="left">
-  </picture>
-</a>
-<img src="data:null;," width="100%" height="0" align="left" alt="">
+<p align="center">
+  <img src="https://manel-readme.manel-romero-alv.workers.dev/activity" alt="Commit Activity" width="360" height="160" />
+  &nbsp;
+  <img src="https://manel-readme.manel-romero-alv.workers.dev/repos" alt="Key Systems" width="360" height="160" />
+</p>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://manel-readme.manel-romero-alv.workers.dev?section=fallback&theme=dark">
-  <img src="https://manel-readme.manel-romero-alv.workers.dev?section=fallback&theme=light" alt="" width="420" align="left">
-</picture>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://manel-readme.manel-romero-alv.workers.dev?section=main&theme=dark">
-  <img src="https://manel-readme.manel-romero-alv.workers.dev?section=main&theme=light" alt="I'm Manel Romero. Fullstack Developer..." width="100%" height="500" align="left">
-</picture>
+<p align="center">
+  <a href="mailto:manel.romero.alv@gmail.com">
+    <img src="https://manel-readme.manel-romero-alv.workers.dev/email" alt="Email" width="360" height="40" />
+  </a>
+  &nbsp;
+  <a href="https://www.linkedin.com/in/manel-romero-alv/">
+    <img src="https://manel-readme.manel-romero-alv.workers.dev/social" alt="LinkedIn" width="360" height="40" />
+  </a>
+</p>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://manel-readme.manel-romero-alv.workers.dev?section=details&theme=dark">
-  <img src="https://manel-readme.manel-romero-alv.workers.dev?section=details&theme=light" alt="Currently exploring and Skillset" width="100%" height="250" align="left">
-</picture>
+</div>
